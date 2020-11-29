@@ -1,3 +1,4 @@
+import java.util.Random;
 
 public class HW2 {
     public static void main(String[] args) {
@@ -7,7 +8,12 @@ public class HW2 {
         ifLowerThanSixX2();//Ex3
         diagonalsEqualsOne();//Ex4
         maxAndMinOfArray();//Ex5*
-        int[] a = {1,3,5,7,2,4,8};
+        int[] a = new int[10];
+        Random rand= new Random();
+        for(int i=0;i< a.length;i++)
+        {
+            a[i]= i;
+        }
         System.out.println(-5%3);
         if (ifCheckBalance(a)) //Ex6**
         {
@@ -17,7 +23,7 @@ public class HW2 {
         {
             System.out.println("Нет баланса");
         }
-        shiftArrayByN(a,-3);//Ex7***
+        shiftArrayByN(a,5);//Ex7***
     }
     public static void zeroToOneToZero()
     {
@@ -68,7 +74,7 @@ public class HW2 {
     }
     public static void diagonalsEqualsOne()
     {
-        int[][] a=new int[6][6];
+        int[][] a=new int[5][5];
         for(int i=0;i< a.length;i++)
         {
             a[i][i]=1;
@@ -79,7 +85,7 @@ public class HW2 {
             System.out.println();
             for (int j = 0; j < a.length; j++)
             {
-                System.out.print(a[i][j]);
+                System.out.print(a[i][j]+" ");
             }
         }
     }
@@ -143,15 +149,20 @@ public class HW2 {
         {
             n+=a.length;
         }
-
         buf = a[i];
         buf1 = a[(i + n) % a.length];
         while (k <= a.length) {
             a[(i + n) % a.length] = buf;
             buf = buf1;
+            if ((k%(a.length/n)==0)&&(a.length%n==0))
+            {
+                i++;
+                buf=a[(i + n) % a.length];
+            }
             i = (i + n) % a.length;
             buf1 = a[(i + n) % a.length];
             k++;
+
         }
 
         System.out.println();
@@ -160,6 +171,4 @@ public class HW2 {
             System.out.print(a[i]+" ");
         }
     }
-
-
 }
