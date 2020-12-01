@@ -8,7 +8,7 @@ public class HW2 {
         ifLowerThanSixX2();//Ex3
         diagonalsEqualsOne();//Ex4
         maxAndMinOfArray();//Ex5*
-        int[] a = new int[10];
+        int[] a = new int[6];
         Random rand= new Random();
         for(int i=0;i< a.length;i++)
         {
@@ -23,7 +23,7 @@ public class HW2 {
         {
             System.out.println("Нет баланса");
         }
-        shiftArrayByN(a,5);//Ex7***
+        shiftArrayByN(a,8);//Ex7***
     }
     public static void zeroToOneToZero()
     {
@@ -145,16 +145,18 @@ public class HW2 {
         int buf,buf1;
         int i=0;
         int k=1;
+        n%=a.length;
         if (n<0)
         {
             n+=a.length;
         }
         buf = a[i];
         buf1 = a[(i + n) % a.length];
-        while (k <= a.length) {
+        while (k <= a.length)
+        {
             a[(i + n) % a.length] = buf;
             buf = buf1;
-            if ((k%(a.length/n)==0)&&(a.length%n==0))
+            if (k*n%a.length==0)
             {
                 i++;
                 buf=a[(i + n) % a.length];
